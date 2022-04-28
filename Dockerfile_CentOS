@@ -1,0 +1,11 @@
+# This is a Dockerfile for trac
+FROM quay.io/centos7/python-27-centos7 
+LABEL description="Custom httpd container image for running trac"
+MAINTAINER Akshat Singh <akshat-pg8@iiitmk.ac.in>
+USER root
+RUN yum install -y httpd
+EXPOSE 80
+ENV LogLevel "info"
+ADD index.html /var/www/html
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
