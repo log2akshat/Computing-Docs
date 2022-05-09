@@ -19,15 +19,15 @@
   </head> {# jinjacheck: "()" OK #}
  
   <style>
-   body {
-    max-width: 75%; 
-    margin: auto;
-    padding: 65px;
-    border-top: 25px solid #555;
-    border-bottom: 225px solid #555;
-    border-left: 115px solid #555;
-    border-right: 115px solid #555;
-   }
+      body {
+          max-width: 75%; 
+          margin: auto;
+          padding: 65px;
+          border-top: 20px solid #555;
+          border-bottom: 225px solid #555;
+          border-left: 115px solid #555;
+          border-right: 115px solid #555;
+         }
   </style>
 
   <body>
@@ -157,10 +157,10 @@
     <div id="footer"><hr/>
       <a id="tracpowered" href="http://akshatsingh.tk"
          ><img src="${chrome.htdocs_location}akshat.jpg"
-               width="80" alt="${_('akshat')}"/></a>
+               width="90" alt="${_('akshat')}"/></a>
       <p class="left">
         # set trac_version
-        <a href="${href.about()}"><strong>Akshat ${trac.version}</strong></a>
+        <a href="http://akshatsingh.tk"><strong>Akshat</strong></a>
         <br />
         # endset
         # set eo
@@ -168,12 +168,12 @@
         # endset
         # trans trac_version, eo
 
-	Written and Maintained by
+	Written and Maintained by:
         Akshat Singh
 
         # endtrans
       </p>
-      <p class="right">${chrome.footer}</p>
+      <p class="right">My Profile:<br><a href="http://akshatsingh.tk">http://akshatsingh.tk</a></p>
     </div>
     <!--   # include 'site_footer.html' (theme.html) -->
     # include 'site_footer.html' ignore missing
