@@ -1,0 +1,22 @@
+[repositories]
+.type = git
+
+[components]
+tractoc.* = enabled
+tracopt.versioncontrol.git.* = enabled
+
+[header_logo]
+alt = akshat's computing knowledge base
+height = 115
+link = /ComputingDocs
+src = site/logos/akshat.png
+width = -1
+
+[project]
+admin = 
+admin_trac_url = .
+descr = akshat's Computing Knowledge Base
+footer = My Profile<br /><a href="http://akshatsingh.tk">http://akshatsingh.tk</a>
+icon = common/trac.ico
+name = ComputingDocs
+url = /ComputingDocs
