@@ -27,25 +27,25 @@ RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py \
 RUN python2 -m pip install setuptools Jinja2 babel Pygments docutils pytz textile PyMySQL trac TracTags genshi mod_wsgi
 RUN python2 -m pip install svn+https://trac-hacks.org/svn/tocmacro/0.11
 RUN apt-get purge -y subversion \
-    && setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2  \
-    && chown www-data:www-data /var/log/apache2
-EXPOSE 80
+    && setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
+EXPOSE 8080
 #ADD trac.conf /etc/apache2/sites-available/trac.conf
 ADD db/dumps/trac_ComputingDocs_10May2022.sql /opt/akstrac/db_backup/trac_ComputingDocs.sql
 ADD configs/trac.conf /opt/akstrac/trac.conf
+ADD configs/ports.conf /opt/akstrac/ports.conf
 ADD configs/trac.ini_customization /opt/akstrac/trac.ini_customization
 ADD configs/ComputingDocs.wsgi /opt/akstrac/ComputingDocs.wsgi
-ADD entrypoint.sh /opt/akstrac/entrypoint.sh
 ADD configs/theme.html /opt/akstrac/theme.html
 ADD images /opt/akstrac/images
 ADD git/UsefulScripts /opt/akstrac/UsefulScripts
-RUN chmod -R 777 /usr/local \
-    && chmod -R 777 /var/run \
-    && chmod -R 777 /var/lock \
-    && chmod -R 777 /var/log/apache2 \
-    && chmod -R 777 /etc/apache2 \
-    && chmod -R 777 /opt/akstrac \
-    && chmod 777 /opt/akstrac/entrypoint.sh
+ADD entrypoint.sh /opt/akstrac/entrypoint.sh
 WORKDIR /opt/akstrac
-USER www-data
+RUN chmod -R 777 /usr/local \
+    && chmod -R 777 /opt/akstrac \
+    && chmod -R 777 /etc/apache2 \
+    && chmod -R 777 /var/run \
+    && chmod -R 777 /var/log/apache2 \
+    && chmod -R 777 /var/lock \
+    && chmod 777 /opt/akstrac/entrypoint.sh
+USER 1001
 ENTRYPOINT ["./entrypoint.sh"]
