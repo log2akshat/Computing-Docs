@@ -45,9 +45,5 @@ htpasswd -dbc ${TRAC_LOCATION}/.htpasswd ${TRAC_USER} ${TRAC_PASSWORD}
 
 echo "\n***** Running the apache2 in the foreground"
 userid=`whoami`
-echo "USERID is: " $userid
-#groupadd $userid
-#useradd -G $userid $userid
 sed -i "s/APACHE_RUN_USER=www-data/APACHE_RUN_USER=$userid/g" /etc/apache2/envvars
 apachectl -DFOREGROUND
-while true; do echo 'Hit CTRL+C'; sleep 100000; done
