@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #    Copyright (C) <2022>  <Akshat Singh>
 #    <akshat-pg8@iiitmk.ac.in>
 #
@@ -15,8 +17,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #    This is the entrypoint script for trac
-
-#!/bin/sh
 
 echo "***** Creating Trac Environment base location"
 mkdir -p ${TRAC_LOCATION}
