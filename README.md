@@ -16,13 +16,13 @@ Trac: [![Docker Repository on Quay](https://quay.io/repository/akshat/trac-httpd
 
 ## Commands
 ### Command to build the MariaDB image.
-{{{
-# Build db image without arguments
+```
+Build db image without arguments
 $ podman build -t mariadb-image-name:v1 .
 
-# With arguments
+With arguments
 $ podman build --build-arg MARIADB_USER=username --build-arg MARIADB_ROOT_PASSWORD=topsecret -t mariadb-image-name:v1 .
-}}}
+```
 
 ### TBD
 - Commnads to build the images and run the containers using these images.
