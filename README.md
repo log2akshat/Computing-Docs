@@ -34,5 +34,7 @@ $ podman run --name akshat-trac-mariadb -dt --network my_shared_network -p 3307:
 $ podman build --build-arg MARIADB_USER=username --build-arg MARIADB_ROOT_PASSWORD=topsecret --build-arg MARIADB_DATABASE=dbname --build-arg MARIADB_HOST=10.0.0.1 --build-arg MARIADB_PORT=3306 --build-arg TRAC_PROJECT_NAME=ComputingDocs --build-arg TRAC_USER=tracuser --build-arg TRAC_PASSWORD=tracpassword -t trac-httpd-debian-openshift:v1 .
 ```
 
-### TBD
-- Commnads to build the images and run the containers using these images.
+### Command to run the Trac image
+```
+$ podman run --name akshat-trac -dt --network aks_shared_network -p 8081:8080/tcp trac-httpd-debian-openshift:v1
+```
