@@ -38,3 +38,9 @@ $ podman build --build-arg MARIADB_USER=username --build-arg MARIADB_ROOT_PASSWO
 ```
 $ podman run --name akshat-trac -dt --network aks_shared_network -p 8081:8080/tcp trac-httpd-debian-openshift:v1
 ```
+
+### Creating a podman network
+```
+$ podman network create akshat_shared_network
+/home/akshat/.config/cni/net.d/akshat_shared.conflist
+```
