@@ -24,7 +24,7 @@ With arguments
 $ podman build --build-arg MARIADB_USER=username --build-arg MARIADB_ROOT_PASSWORD=topsecret -t mariadb-image-name:v1 .
 ```
 
-### Command to run the built MAriaDB image
+### Command to run the built MariaDB image
 ```
 $ podman run --name akshat-trac-mariadb -dt --network my_shared_network -p 3307:3306/tcp mariadb-image-name:v1
 ```
