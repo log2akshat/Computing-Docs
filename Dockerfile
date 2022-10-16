@@ -38,13 +38,14 @@ ENV MARIADB_USER=$MARIADB_USER \
     TRAC_LOCATION=/usr/local/trac \
     LogLevel="info"
 RUN apt-get update \
-    && apt-get install -y wget git apache2 apache2-dev libcap2-bin python2 python2-dev python-is-python2 mariadb-client default-libmysqlclient-dev subversion
+    && apt-get install -y wget git apache2 apache2-utils apache2-dev libcap2-bin python2 python2-dev python-is-python2 mariadb-client default-libmysqlclient-dev subversion
 RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py \
     && python2 get-pip.py
 RUN python2 -m pip install setuptools Jinja2 babel Pygments docutils pytz textile PyMySQL trac TracTags genshi mod_wsgi
 RUN python2 -m pip install svn+https://trac-hacks.org/svn/tocmacro/0.11
-RUN apt-get purge -y subversion \
-    && setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
+RUN a2enmod lbmethod_byrequests
+RUN apt-get purge -y subversion
+    #&& setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
 EXPOSE 8080
 #ADD trac.conf /etc/apache2/sites-available/trac.conf
 ADD db/dumps/trac_ComputingDocs_23June2022.sql /opt/akstrac/db_backup/trac_ComputingDocs.sql
