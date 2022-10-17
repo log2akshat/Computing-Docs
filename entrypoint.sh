@@ -61,7 +61,7 @@ htpasswd -dbc ${TRAC_LOCATION}/.htpasswd ${TRAC_USER} ${TRAC_PASSWORD}
 ## [If mod_python module is used] Enabling the trac site on apache2
 #a2ensite trac.conf
 
-echo "\n***** Running the apache2 in the foreground"
 userid=`whoami`
+echo "\n***** Running the apache2 in the foreground with the user $userid"
 sed -i "s/APACHE_RUN_USER=www-data/APACHE_RUN_USER=$userid/g" /etc/apache2/envvars
 apachectl -DFOREGROUND
