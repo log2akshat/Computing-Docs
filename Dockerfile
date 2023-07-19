@@ -48,7 +48,7 @@ RUN apt-get purge -y subversion
     #&& setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
 EXPOSE 8080
 #ADD trac.conf /etc/apache2/sites-available/trac.conf
-ADD db/dumps/trac_ComputingDocs_23June2022.sql /opt/akstrac/db_backup/trac_ComputingDocs.sql
+ADD db/dumps/trac_ComputingDocs_19Jul23.sql /opt/akstrac/db_backup/trac_ComputingDocs.sql
 ADD configs/trac.conf /opt/akstrac/trac.conf
 ADD configs/ports.conf /opt/akstrac/ports.conf
 ADD configs/trac.ini_customization /opt/akstrac/trac.ini_customization
