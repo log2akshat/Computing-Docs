@@ -16,7 +16,7 @@ width = -1
 admin = 
 admin_trac_url = .
 descr = akshat's Computing Knowledge Base
-footer = My Profile<br /><a href="http://akshatsingh.tk">http://akshatsingh.tk</a>
+footer = My Profile<br /><a href="https://akshatsingh.co.in">https://akshatsingh.co.in</a>
 icon = common/trac.ico
 name = ComputingDocs
 url = /ComputingDocs
