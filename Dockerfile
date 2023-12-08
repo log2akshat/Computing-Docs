@@ -48,15 +48,15 @@ RUN apt-get purge -y subversion
     #&& setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
 EXPOSE 8080
 #ADD trac.conf /etc/apache2/sites-available/trac.conf
-ADD db/dumps/trac_ComputingDocs_19Jul23.sql /opt/akstrac/db_backup/trac_ComputingDocs.sql
-ADD configs/trac.conf /opt/akstrac/trac.conf
-ADD configs/ports.conf /opt/akstrac/ports.conf
-ADD configs/trac.ini_customization /opt/akstrac/trac.ini_customization
-ADD configs/ComputingDocs.wsgi /opt/akstrac/ComputingDocs.wsgi
-ADD configs/theme.html /opt/akstrac/theme.html
-ADD images /opt/akstrac/images
-ADD git/UsefulScripts /opt/akstrac/UsefulScripts
-ADD entrypoint.sh /opt/akstrac/entrypoint.sh
+COPY db/dumps/trac_ComputingDocs_19Jul23.sql /opt/akstrac/db_backup/trac_ComputingDocs.sql
+COPY configs/trac.conf /opt/akstrac/trac.conf
+COPY configs/ports.conf /opt/akstrac/ports.conf
+COPY configs/trac.ini_customization /opt/akstrac/trac.ini_customization
+COPY configs/ComputingDocs.wsgi /opt/akstrac/ComputingDocs.wsgi
+COPY configs/theme.html /opt/akstrac/theme.html
+COPY images /opt/akstrac/images
+COPY git/UsefulScripts /opt/akstrac/UsefulScripts
+COPY ./entrypoint.sh /opt/akstrac/entrypoint.sh
 WORKDIR /opt/akstrac
 RUN chmod -R 777 /usr/local \
     && chmod -R 777 /opt/akstrac \
